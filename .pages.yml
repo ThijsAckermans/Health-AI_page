@@ -1,18 +1,89 @@
 media:
   input: public/assets
   output: /assets
-  categories: [ "image" ]
+  categories: [ "image", "document" ]
+
 content:
-  - name: posts
-    label: Posts
+  # Site Settings (singleton)
+  - name: settings
+    label: Site Settings
+    type: file
+    path: _content/settings.json
+    fields:
+      - { name: siteName, label: Site Name, type: string, required: true }
+      - { name: siteDescription, label: Site Description, type: string }
+      - { name: projectFullName, label: Project Full Name, type: string }
+      - { name: grantAgreementNumber, label: Grant Agreement Number, type: string }
+      - { name: fundingProgram, label: Funding Program, type: string }
+      - name: socialLinks
+        label: Social Links
+        type: object
+        fields:
+          - { name: facebook, label: Facebook URL, type: string }
+          - { name: linkedin, label: LinkedIn URL, type: string }
+          - { name: twitter, label: Twitter/X URL, type: string }
+      - { name: footerText, label: Footer Text, type: rich-text }
+
+  # Navigation (singleton)
+  - name: navigation
+    label: Navigation
+    type: file
+    path: _content/navigation.json
+    fields:
+      - name: mainMenu
+        label: Main Menu
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Label, type: string, required: true }
+          - { name: href, label: URL, type: string, required: true }
+          - { name: order, label: Order, type: number }
+
+  # Home Page (singleton)
+  - name: home
+    label: Home Page
+    type: file
+    path: _content/home.json
+    fields:
+      - { name: heroTitle, label: Hero Title, type: string, required: true }
+      - { name: heroSubtitle, label: Hero Subtitle, type: string }
+      - { name: heroImage, label: Hero Image, type: image }
+      - { name: heroButtonText, label: Hero Button Text, type: string }
+      - { name: heroButtonLink, label: Hero Button Link, type: string }
+      - { name: introTitle, label: Introduction Title, type: string }
+      - { name: introContent, label: Introduction Content, type: rich-text }
+      - { name: introImage, label: Introduction Image, type: image }
+
+  # About/Concepts Page (singleton)
+  - name: about
+    label: About / Concepts & Objectives
+    type: file
+    path: _content/about.json
+    fields:
+      - { name: title, label: Page Title, type: string, required: true }
+      - { name: subtitle, label: Subtitle, type: string }
+      - { name: heroImage, label: Hero Image, type: image }
+      - { name: content, label: Content, type: rich-text }
+      - name: objectives
+        label: Objectives
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: description, label: Description, type: rich-text }
+          - { name: icon, label: Icon, type: image }
+
+  # News/Posts (collection)
+  - name: news
+    label: News
     type: collection
-    path: _posts
+    path: _content/news
     view:
       fields: [ coverImage, title, date ]
     fields:
       - { name: title, label: Title, type: string, required: true }
       - { name: excerpt, label: Excerpt, type: string }
-      - { name: coverImage, label: Cover image, type: image }
+      - { name: coverImage, label: Cover Image, type: image }
       - { name: date, label: Date, type: date, options: { time: true, format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" } }
       - name: author
         label: Author
@@ -26,3 +97,134 @@ content:
         fields:
           - { name: url, label: URL, type: image }
       - { name: body, label: Body, type: rich-text }
+
+  # Publications (collection)
+  - name: publications
+    label: Publications
+    type: collection
+    path: _content/publications
+    view:
+      fields: [ title, year, type ]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: authors, label: Authors, type: string }
+      - { name: journal, label: Journal/Conference, type: string }
+      - { name: year, label: Year, type: number }
+      - { name: type, label: Type, type: select, options: { values: [ "Journal Article", "Conference Paper", "Report", "Preprint" ] } }
+      - { name: doi, label: DOI, type: string }
+      - { name: url, label: URL, type: string }
+      - { name: abstract, label: Abstract, type: rich-text }
+      - { name: pdf, label: PDF, type: file }
+
+  # Outreach & Dissemination (singleton)
+  - name: outreach
+    label: Outreach & Dissemination
+    type: file
+    path: _content/outreach.json
+    fields:
+      - { name: title, label: Page Title, type: string, required: true }
+      - { name: intro, label: Introduction, type: rich-text }
+      - name: events
+        label: Events
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Event Title, type: string }
+          - { name: date, label: Date, type: date }
+          - { name: location, label: Location, type: string }
+          - { name: description, label: Description, type: rich-text }
+          - { name: image, label: Image, type: image }
+          - { name: link, label: Link, type: string }
+
+  # Consortium/Partners (collection)
+  - name: partners
+    label: Consortium Partners
+    type: collection
+    path: _content/partners
+    view:
+      fields: [ logo, name, country ]
+    fields:
+      - { name: name, label: Partner Name, type: string, required: true }
+      - { name: shortName, label: Short Name/Acronym, type: string }
+      - { name: logo, label: Logo, type: image }
+      - { name: country, label: Country, type: string }
+      - { name: website, label: Website URL, type: string }
+      - { name: description, label: Description, type: rich-text }
+      - { name: role, label: Role in Project, type: rich-text }
+      - { name: order, label: Display Order, type: number }
+
+  # Work Packages (collection)
+  - name: workpackages
+    label: Work Packages
+    type: collection
+    path: _content/workpackages
+    view:
+      fields: [ number, title, lead ]
+    fields:
+      - { name: number, label: WP Number, type: number, required: true }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: lead, label: Lead Partner, type: string }
+      - { name: description, label: Description, type: rich-text }
+      - name: objectives
+        label: Objectives
+        type: string
+        list: true
+
+  # Contact Page (singleton)
+  - name: contact
+    label: Contact
+    type: file
+    path: _content/contact.json
+    fields:
+      - { name: title, label: Page Title, type: string }
+      - { name: intro, label: Introduction, type: rich-text }
+      - { name: email, label: Contact Email, type: string }
+      - { name: address, label: Address, type: rich-text }
+      - { name: coordinatorName, label: Coordinator Name, type: string }
+      - { name: coordinatorOrg, label: Coordinator Organization, type: string }
+      - { name: mapEmbed, label: Map Embed Code, type: string }
+
+  # Legal Pages
+  - name: privacy
+    label: Privacy Statement
+    type: file
+    path: _content/privacy.md
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: lastUpdated, label: Last Updated, type: date }
+      - { name: body, label: Content, type: rich-text }
+
+  - name: disclaimer
+    label: Disclaimer
+    type: file
+    path: _content/disclaimer.md
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: lastUpdated, label: Last Updated, type: date }
+      - { name: body, label: Content, type: rich-text }
+
+  - name: cookies
+    label: Cookie Policy
+    type: file
+    path: _content/cookies.md
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: lastUpdated, label: Last Updated, type: date }
+      - { name: body, label: Content, type: rich-text }
+
+  # For Patients Page (optional - for health projects)
+  - name: patients
+    label: For Patients
+    type: file
+    path: _content/patients.json
+    fields:
+      - { name: title, label: Page Title, type: string }
+      - { name: intro, label: Introduction, type: rich-text }
+      - { name: content, label: Content, type: rich-text }
+      - name: faqs
+        label: FAQs
+        type: object
+        list: true
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answer, label: Answer, type: rich-text }

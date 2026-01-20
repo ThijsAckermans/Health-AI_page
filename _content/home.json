@@ -1,0 +1,10 @@
+{
+  "heroTitle": "Advancing Healthcare Through Artificial Intelligence",
+  "heroSubtitle": "A Horizon Europe funded research project developing AI solutions for improved patient outcomes",
+  "heroImage": "/assets/hero-bg.jpg",
+  "heroButtonText": "Learn More",
+  "heroButtonLink": "/about",
+  "introTitle": "Introduction",
+  "introContent": "<p>Our consortium combines expertise in artificial intelligence, healthcare, and clinical research to develop innovative solutions that will transform patient care.</p><p>Through cutting-edge AI technology, we aim to improve diagnosis, treatment planning, and patient outcomes across Europe.</p>",
+  "introImage": "/assets/intro-image.jpg"
+}

@@ -1,0 +1,15 @@
+{
+  "title": "For Patients",
+  "intro": "<p>Information for patients participating in or interested in our research.</p>",
+  "content": "<h2>What is Health-AI?</h2><p>Health-AI is a research project that uses artificial intelligence to help doctors make better treatment decisions. Our goal is to improve patient outcomes while minimizing side effects.</p><h2>How does this affect me?</h2><p>If you are participating in one of our clinical trials, the AI tools developed by Health-AI may help your doctors better understand your individual situation and tailor your treatment accordingly.</p>",
+  "faqs": [
+    {
+      "question": "Is my data safe?",
+      "answer": "<p>Yes, we follow strict EU data protection regulations (GDPR) and all data is anonymized and securely stored.</p>"
+    },
+    {
+      "question": "How can I participate?",
+      "answer": "<p>Please contact your healthcare provider or reach out to us through our contact page for information about ongoing studies.</p>"
+    }
+  ]
+}

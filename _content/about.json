@@ -1,0 +1,28 @@
+{
+  "title": "Concepts & Objectives",
+  "subtitle": "Our mission and goals",
+  "heroImage": "/assets/about-hero.jpg",
+  "content": "<h2>Project Overview</h2><p>The Health-AI project brings together leading research institutions and healthcare providers to develop and validate AI-powered solutions for healthcare challenges.</p><h2>Our Approach</h2><p>We combine state-of-the-art machine learning techniques with clinical expertise to create tools that are both accurate and explainable, ensuring trust and adoption in clinical settings.</p>",
+  "objectives": [
+    {
+      "title": "Develop Explainable AI Models",
+      "description": "<p>Create AI prediction models that provide transparent and interpretable results for clinical decision support.</p>",
+      "icon": ""
+    },
+    {
+      "title": "Clinical Validation",
+      "description": "<p>Validate AI solutions through rigorous clinical trials across multiple European healthcare centers.</p>",
+      "icon": ""
+    },
+    {
+      "title": "Stakeholder Engagement",
+      "description": "<p>Involve patients, clinicians, and healthcare administrators in the co-design process.</p>",
+      "icon": ""
+    },
+    {
+      "title": "Ethical AI Framework",
+      "description": "<p>Ensure fair, transparent, and ethical AI development following EU guidelines.</p>",
+      "icon": ""
+    }
+  ]
+}
