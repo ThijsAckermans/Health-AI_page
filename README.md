@@ -108,9 +108,9 @@ public/
 **⚠️ The following images need to be added:**
 
 #### Site-wide Images
-- [ ] `public/assets/hero-bg.jpg` - Hero background (recommended: 1920x1080px)
-- [ ] `public/assets/intro-image.jpg` - Introduction section image
-- [ ] `public/assets/about-hero.jpg` - About page hero
+- [x] `public/assets/hero-bg.jpg` - Hero background (1920x1080px) ✓
+- [x] `public/assets/intro-image.jpg` - Introduction section image (1200x800px) ✓
+- [x] `public/assets/about-hero.jpg` - About page hero (1920x600px) ✓
 
 #### Partner Logos (16 partners)
 
