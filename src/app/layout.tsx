@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+const basePath = process.env.BASE_PATH || "";
 
 export const metadata: Metadata = {
   title: "Health-AI",
@@ -20,22 +21,22 @@ export default function RootLayout({
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/favicon/apple-touch-icon.png"
+          href={`${basePath}/favicon/apple-touch-icon.png`}
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="/favicon/favicon-32x32.png"
+          href={`${basePath}/favicon/favicon-32x32.png`}
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="/favicon/favicon-16x16.png"
+          href={`${basePath}/favicon/favicon-16x16.png`}
         />
-        <link rel="manifest" href="/favicon/site.webmanifest" />
-        <link rel="shortcut icon" href="/favicon/favicon.ico" />
+        <link rel="manifest" href={`${basePath}/favicon/site.webmanifest`} />
+        <link rel="shortcut icon" href={`${basePath}/favicon/favicon.ico`} />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="theme-color" content="#2563eb" />
       </head>
