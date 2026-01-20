@@ -58,6 +58,66 @@ Your blog should be up and running on [http://localhost:3000](http://localhost:3
 
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
 
+## GitHub Pages Deployment
+
+This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
+
+### Setup
+
+1. Go to your repository **Settings** → **Pages**
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**
+3. Push to the `main` branch - the site will deploy automatically
+
+### Configuration
+
+The deployment uses an environment variable `BASE_PATH` to handle different hosting scenarios:
+
+#### GitHub Pages (subdirectory)
+When hosting at `https://<username>.github.io/<repo-name>/`, the `BASE_PATH` is set in `.github/workflows/nextjs.yml`:
+
+```yaml
+env:
+  BASE_PATH: /Health-AI_page
+```
+
+#### Custom Domain (root)
+When using a custom domain like `https://yourdomain.com/`:
+
+1. Update `.github/workflows/nextjs.yml`:
+   ```yaml
+   env:
+     BASE_PATH:   # leave empty for root domain
+   ```
+
+2. Add your custom domain in GitHub repo **Settings** → **Pages** → **Custom domain**
+
+3. Create a `CNAME` file in the `public/` folder with your domain:
+   ```
+   yourdomain.com
+   ```
+
+### Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production (GitHub Pages)
+BASE_PATH=/Health-AI_page npm run build
+
+# Build for production (custom domain)
+npm run build
+```
+
+### PagesCMS Integration
+
+This project uses [PagesCMS](https://pagescms.org/) for content management. Configuration is in `.pages.yml`.
+
+Media files are stored in `public/assets/` and the CMS is configured to output paths as `/assets/...`. The application code automatically handles the `BASE_PATH` prefix for images.
+
 # Notes
 
 `blog-starter` uses [Tailwind CSS](https://tailwindcss.com) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3).
