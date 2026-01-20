@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 
 type MenuItem = {
@@ -18,7 +17,6 @@ type Props = {
 export function Navigation({ siteName, menuItems }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,18 +34,9 @@ export function Navigation({ siteName, menuItems }: Props) {
     }`}>
       <div className="container-wide">
         <div className="flex justify-between h-16 md:h-20">
-          <div className="flex items-center gap-3">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-10 h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-105">
-                <Image
-                  src={`${basePath}/assets/health-ai-logo.png`}
-                  alt={siteName}
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </div>
-              <span className="text-xl md:text-2xl font-bold text-gray-900 tracking-tight">
+          <div className="flex items-center">
+            <Link href="/" className="group">
+              <span className="text-xl md:text-2xl font-bold text-gray-900 tracking-tight group-hover:text-blue-600 transition-colors">
                 {siteName}
               </span>
             </Link>
@@ -55,7 +44,7 @@ export function Navigation({ siteName, menuItems }: Props) {
 
           {/* Desktop menu */}
           <div className="hidden lg:flex items-center gap-1">
-            {menuItems.map((item) => (
+            {menuItems.filter(item => item.href !== '/contact').map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

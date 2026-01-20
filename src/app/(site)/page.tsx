@@ -68,7 +68,7 @@ export default function Home() {
                 )}
                 <Link
                   href="/consortium"
-                  className="btn-secondary border-white/30 text-white hover:bg-white/10"
+                  className="btn-secondary bg-white/10 border-white/40 text-white hover:bg-white/20"
                 >
                   Meet Our Partners
                 </Link>
