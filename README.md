@@ -1,123 +1,413 @@
-# A statically generated blog example using Next.js, Markdown, and TypeScript
+# Health-AI Website
 
-This is the existing [blog-starter](https://github.com/vercel/next.js/tree/canary/examples/blog-starter) plus TypeScript.
+The official website for the **Health-AI** project - a System Breakthrough Project revolutionizing how AI is developed and validated for health through federated learning.
 
-This example showcases Next.js's [Static Generation](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts) feature using Markdown files as the data source.
+🌐 **Live Site:** [https://thijsackermans.github.io/Health-AI_page/](https://thijsackermans.github.io/Health-AI_page/)
 
-The blog posts are stored in `/_posts` as Markdown files with front matter support. Adding a new Markdown file in there will create a new blog post.
+---
 
-To create the blog posts we use [`remark`](https://github.com/remarkjs/remark) and [`remark-html`](https://github.com/remarkjs/remark-html) to convert the Markdown files into an HTML string, and then send it down as a prop to the page. The metadata of every post is handled by [`gray-matter`](https://github.com/jonschlinkert/gray-matter) and also sent in props to the page.
+## 📚 Table of Contents
 
-## Demo
+- [Quick Start](#-quick-start)
+- [Content Management](#-content-management-pagescms)
+- [Adding Images](#-adding-images)
+- [Content Structure](#-content-structure)
+- [Deployment](#-deployment)
+- [Local Development](#-local-development)
 
-[https://next-blog-starter.vercel.app/](https://next-blog-starter.vercel.app/)
+---
 
-## Deploy your own
+## 🚀 Quick Start
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/blog-starter)
+### For Content Editors (Non-Technical)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/blog-starter&project-name=blog-starter&repository-name=blog-starter)
+**The easiest way to edit content is through PagesCMS:**
 
-### Related examples
+1. Go to [PagesCMS](https://pagescms.org/)
+2. Connect with your GitHub account
+3. Select the `Health-AI_page` repository
+4. Edit content through the visual interface
+5. Changes are automatically saved and deployed
 
-- [WordPress](/examples/cms-wordpress)
-- [DatoCMS](/examples/cms-datocms)
-- [Sanity](/examples/cms-sanity)
-- [TakeShape](/examples/cms-takeshape)
-- [Prismic](/examples/cms-prismic)
-- [Contentful](/examples/cms-contentful)
-- [Strapi](/examples/cms-strapi)
-- [Agility CMS](/examples/cms-agilitycms)
-- [Cosmic](/examples/cms-cosmic)
-- [ButterCMS](/examples/cms-buttercms)
-- [Storyblok](/examples/cms-storyblok)
-- [GraphCMS](/examples/cms-graphcms)
-- [Kontent](/examples/cms-kontent)
-- [Umbraco Heartcore](/examples/cms-umbraco-heartcore)
-- [Builder.io](/examples/cms-builder-io)
-- [TinaCMS](/examples/cms-tina/)
-- [Enterspeed](/examples/cms-enterspeed)
+📖 **PagesCMS Documentation:** [https://pagescms.org/docs](https://pagescms.org/docs)
 
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+### For Developers
 
 ```bash
-npx create-next-app --example blog-starter blog-starter-app
+# Clone the repository
+git clone https://github.com/ThijsAckermans/Health-AI_page.git
+cd Health-AI_page
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+BASE_PATH=/Health-AI_page npm run build
 ```
 
-```bash
-yarn create next-app --example blog-starter blog-starter-app
+---
+
+## ✏️ Content Management (PagesCMS)
+
+All website content is stored in the `_content/` folder as JSON and Markdown files. You can edit these files directly or use PagesCMS for a visual editor.
+
+### PagesCMS Configuration
+
+The CMS is configured via `.pages.yml` in the root folder. This defines all content types and their fields.
+
+📖 **PagesCMS Field Types:** [https://pagescms.org/docs/configuration/fields](https://pagescms.org/docs/configuration/fields)
+
+### Content Types
+
+| Content Type | File Location | Description |
+|--------------|---------------|-------------|
+| **Settings** | `_content/settings.json` | Site name, description, social links |
+| **Navigation** | `_content/navigation.json` | Main menu items |
+| **Home Page** | `_content/home.json` | Hero section, introduction |
+| **About** | `_content/about.json` | Project description, objectives |
+| **News** | `_content/news/*.md` | News articles (collection) |
+| **Publications** | `_content/publications/*.md` | Scientific publications |
+| **Partners** | `_content/partners/*.md` | Consortium partners |
+| **Work Packages** | `_content/workpackages/*.md` | Project work packages |
+| **Outreach** | `_content/outreach.json` | Events and dissemination |
+| **Contact** | `_content/contact.json` | Contact information |
+| **Patients** | `_content/patients.json` | Patient information |
+| **Legal Pages** | `_content/privacy.md`, `_content/disclaimer.md`, `_content/cookies.md` | Legal documents |
+
+---
+
+## 🖼️ Adding Images
+
+### Image Location
+
+All images must be placed in the `public/assets/` folder:
+
+```
+public/
+└── assets/
+    ├── hero-bg.jpg          # Home page hero background
+    ├── intro-image.jpg      # Home page introduction image
+    ├── about-hero.jpg       # About page hero image
+    ├── partners/            # Partner logos
+    │   ├── mdw-logo.png
+    │   ├── philips-logo.png
+    │   ├── maastricht-university-logo.png
+    │   └── ...
+    ├── news/                # News article images
+    │   └── article-name/
+    │       └── cover.jpg
+    └── blog/                # Legacy blog images
+        └── ...
 ```
 
-```bash
-pnpm create next-app --example blog-starter blog-starter-app
+### Required Images Checklist
+
+**⚠️ The following images need to be added:**
+
+#### Site-wide Images
+- [ ] `public/assets/hero-bg.jpg` - Hero background (recommended: 1920x1080px)
+- [ ] `public/assets/intro-image.jpg` - Introduction section image
+- [ ] `public/assets/about-hero.jpg` - About page hero
+
+#### Partner Logos (16 partners)
+
+Place in `public/assets/partners/`:
+
+| Partner | Filename |
+|---------|----------|
+| Medical Data Works B.V. | `mdw-logo.png` |
+| Maastricht University | `maastricht-university-logo.png` |
+| Philips | `philips-logo.png` |
+| Radboudumc | `radboudumc-logo.png` |
+| UMCG | `umcg-logo.png` |
+| TNO | `tno-logo.png` |
+| NKI-AVL | `nki-avl-logo.png` |
+| Isala | `isala-logo.png` |
+| MAASTRO Clinic | `maastro-logo.png` |
+| Brightlands | `brightlands-logo.png` |
+| Health-RI | `health-ri-logo.png` |
+| SURF | `surf-logo.png` |
+| Branchkey | `branchkey-logo.png` |
+| Roseman Labs | `roseman-labs-logo.png` |
+| IQVIA | `iqvia-logo.png` |
+| Linksight | `linksight-logo.png` |
+
+**Recommended logo specifications:**
+- Format: PNG with transparent background
+- Size: 200-400px width, maintain aspect ratio
+- File size: Under 100KB for web performance
+
+### How to Add Images
+
+#### Method 1: Through PagesCMS (Recommended)
+1. Open PagesCMS and navigate to the content item
+2. Click on an image field
+3. Upload your image through the media browser
+4. The image will be automatically placed in `public/assets/`
+
+#### Method 2: Direct File Upload
+1. Add images to the appropriate `public/assets/` subfolder
+2. Reference them in content files using the path `/assets/your-image.jpg`
+
+#### Method 3: Via GitHub
+1. Go to the repository on GitHub
+2. Navigate to `public/assets/`
+3. Click "Add file" → "Upload files"
+4. Drag and drop your images
+5. Commit the changes
+
+### Image References in Content
+
+In JSON files, reference images like this:
+```json
+{
+  "heroImage": "/assets/hero-bg.jpg",
+  "logo": "/assets/partners/mdw-logo.png"
+}
 ```
 
-Your blog should be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## GitHub Pages Deployment
-
-This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
-
-### Setup
-
-1. Go to your repository **Settings** → **Pages**
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**
-3. Push to the `main` branch - the site will deploy automatically
-
-### Configuration
-
-The deployment uses an environment variable `BASE_PATH` to handle different hosting scenarios:
-
-#### GitHub Pages (subdirectory)
-When hosting at `https://<username>.github.io/<repo-name>/`, the `BASE_PATH` is set in `.github/workflows/nextjs.yml`:
-
-```yaml
-env:
-  BASE_PATH: /Health-AI_page
+In Markdown files, use the frontmatter:
+```markdown
+---
+coverImage: "/assets/news/my-article/cover.jpg"
+---
 ```
 
-#### Custom Domain (root)
-When using a custom domain like `https://yourdomain.com/`:
+Or inline markdown:
+```markdown
+![Alt text](/assets/my-image.jpg)
+```
+
+---
+
+## 📁 Content Structure
+
+### JSON Content Files (Singleton Pages)
+
+JSON files are used for single pages with structured data:
+
+```json
+{
+  "title": "Page Title",
+  "content": "<p>HTML content with <strong>formatting</strong></p>",
+  "heroImage": "/assets/image.jpg"
+}
+```
+
+**Rich text fields** support HTML tags: `<p>`, `<strong>`, `<em>`, `<ul>`, `<li>`, `<h2>`, `<h3>`, `<a>`, `<br>`
+
+### Markdown Content Files (Collections)
+
+Markdown files are used for collections like news, partners, and publications:
+
+```markdown
+---
+title: "Article Title"
+date: "2025-01-15"
+excerpt: "Brief description for listings"
+coverImage: "/assets/news/article/cover.jpg"
+featured: true
+---
+
+## Main Content
+
+Write your content here using **Markdown** formatting.
+
+- Bullet points
+- Are supported
+
+### Subheadings work too
+
+Links: [Link text](https://example.com)
+```
+
+### News Articles
+
+Create a new file in `_content/news/` with this format:
+
+```markdown
+---
+title: "Your News Title"
+date: "2025-01-20"
+author: "Health-AI Consortium"
+excerpt: "A brief summary for the news listing page."
+coverImage: "/assets/news/your-article/cover.jpg"
+featured: false
+---
+
+Your article content here...
+```
+
+### Partners
+
+Create a new file in `_content/partners/` with this format:
+
+```markdown
+---
+name: "Partner Name"
+shortName: "PN"
+logo: "/assets/partners/partner-logo.png"
+country: "Netherlands"
+website: "https://partner-website.com"
+description: "Brief description of the partner organization."
+role: "Role in the Health-AI project"
+order: 1
+---
+```
+
+### Work Packages
+
+Create a new file in `_content/workpackages/` with this format:
+
+```markdown
+---
+number: 1
+title: "Work Package Title"
+lead: "Lead Partner Name"
+description: "Description of the work package objectives and scope."
+objectives:
+  - "First objective"
+  - "Second objective"
+  - "Third objective"
+---
+```
+
+### Publications
+
+Create a new file in `_content/publications/` with this format:
+
+```markdown
+---
+title: "Publication Title"
+authors: "Author A., Author B., Author C."
+journal: "Journal Name"
+year: 2025
+type: "Journal Article"
+doi: "10.1000/example"
+url: "https://link-to-paper.com"
+abstract: "Abstract of the publication."
+---
+```
+
+---
+
+## 🚀 Deployment
+
+### GitHub Pages (Automatic)
+
+The site automatically deploys to GitHub Pages when you push to the `main` branch.
+
+**Setup (one-time):**
+1. Go to repository **Settings** → **Pages**
+2. Under "Build and deployment", set **Source** to **GitHub Actions**
+3. Push to `main` - the site deploys automatically
+
+### Custom Domain
+
+To use a custom domain like `health-ai.nl`:
 
 1. Update `.github/workflows/nextjs.yml`:
    ```yaml
    env:
-     BASE_PATH:   # leave empty for root domain
+     BASE_PATH:   # Empty for custom domain
    ```
 
-2. Add your custom domain in GitHub repo **Settings** → **Pages** → **Custom domain**
+2. Add custom domain in **Settings** → **Pages** → **Custom domain**
 
-3. Create a `CNAME` file in the `public/` folder with your domain:
+3. Create `public/CNAME` with your domain:
    ```
-   yourdomain.com
+   health-ai.nl
    ```
 
-### Local Development
+4. Configure DNS at your domain registrar:
+   - Add a CNAME record pointing to `thijsackermans.github.io`
+
+---
+
+## 💻 Local Development
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Commands
 
 ```bash
 # Install dependencies
 npm install
 
-# Run development server
+# Start development server (http://localhost:3000)
 npm run dev
 
-# Build for production (GitHub Pages)
+# Build for production
+npm run build
+
+# Build with GitHub Pages base path
 BASE_PATH=/Health-AI_page npm run build
 
-# Build for production (custom domain)
-npm run build
+# Start production server locally
+npm start
 ```
 
-### PagesCMS Integration
+### Project Structure
 
-This project uses [PagesCMS](https://pagescms.org/) for content management. Configuration is in `.pages.yml`.
+```
+Health-AI_page/
+├── _content/           # All content files (JSON + Markdown)
+│   ├── settings.json   # Site settings
+│   ├── home.json       # Home page content
+│   ├── about.json      # About page content
+│   ├── news/           # News articles (*.md)
+│   ├── partners/       # Partner profiles (*.md)
+│   ├── publications/   # Publications (*.md)
+│   └── workpackages/   # Work packages (*.md)
+├── public/
+│   └── assets/         # All images and media
+├── src/
+│   ├── app/            # Next.js pages and components
+│   ├── lib/            # Content API and utilities
+│   └── interfaces/     # TypeScript type definitions
+├── .pages.yml          # PagesCMS configuration
+└── next.config.js      # Next.js configuration
+```
 
-Media files are stored in `public/assets/` and the CMS is configured to output paths as `/assets/...`. The application code automatically handles the `BASE_PATH` prefix for images.
+---
 
-# Notes
+## 📖 Documentation Links
 
-`blog-starter` uses [Tailwind CSS](https://tailwindcss.com) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3).
+| Resource | URL |
+|----------|-----|
+| **PagesCMS Docs** | [https://pagescms.org/docs](https://pagescms.org/docs) |
+| **PagesCMS Fields** | [https://pagescms.org/docs/configuration/fields](https://pagescms.org/docs/configuration/fields) |
+| **Next.js Docs** | [https://nextjs.org/docs](https://nextjs.org/docs) |
+| **Markdown Guide** | [https://www.markdownguide.org/](https://www.markdownguide.org/) |
+| **GitHub Pages** | [https://docs.github.com/en/pages](https://docs.github.com/en/pages) |
+
+---
+
+## 🤝 Contributing
+
+1. Create a feature branch: `git checkout -b feature/my-feature`
+2. Make your changes
+3. Test locally with `npm run dev`
+4. Commit: `git commit -m "Add my feature"`
+5. Push: `git push origin feature/my-feature`
+6. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is part of the Health-AI System Breakthrough Project, funded by the AI Coalition for the Netherlands (AIC4NL).
+
+---
+
+## 🆘 Need Help?
+
+- **Content editing:** Use [PagesCMS](https://pagescms.org/) for the visual editor
+- **Technical issues:** Open an issue on [GitHub](https://github.com/ThijsAckermans/Health-AI_page/issues)
+- **Project inquiries:** Contact the coordinator at Medical Data Works B.V.
