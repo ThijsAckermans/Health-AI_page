@@ -1,12 +1,12 @@
 {
   "title": "Outreach & Dissemination",
-  "intro": "<p>We are committed to sharing our findings and engaging with the broader scientific community, healthcare professionals, and the public.</p>",
+  "intro": "<p>Health-AI actively seeks collaboration and knowledge-sharing opportunities, engaging with various stakeholders, including NLAIC/AiNed initiatives (AI Hubs, ELSA Labs, Working group Health), Health-RI nodes, and European initiatives. This approach positions Health-AI as a catalyst for transformative advancements in health AI research and innovation.</p><p>The project is committed to open-source development and sharing knowledge with the broader community.</p>",
   "events": [
     {
-      "title": "Annual Consortium Meeting 2026",
-      "date": "2026-03-15",
-      "location": "Amsterdam, Netherlands",
-      "description": "<p>Join us for our annual consortium meeting where we will present project progress and future directions.</p>",
+      "title": "Project Kick-off",
+      "date": "2025-01-01",
+      "location": "The Netherlands",
+      "description": "<p>Official start of the Health-AI System Breakthrough Project, funded by the AI Coalition for the Netherlands (AIC4NL).</p>",
       "image": "",
       "link": ""
     }

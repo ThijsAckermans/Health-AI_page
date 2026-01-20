@@ -1,11 +1,12 @@
 ---
 number: 2
-title: "Data Management and Research Infrastructure"
-lead: "AI Research Institute"
-description: "Prepare data management plans, curate datasets, and establish FAIR data sharing infrastructure."
+title: "Data"
+lead: "Health-RI / Data Providers"
+description: "Making health data Findable, Accessible, Interoperable, and Reusable (FAIR) within a federated setting across health organizations. This is essential for enhancing data privacy, security, and compliance while optimizing data utility for AI development."
 objectives:
-  - "Prepare the data management plan"
-  - "Curate and preprocess clinical, imaging, and genomic data"
-  - "Publish training repository according to FAIR guidelines"
-  - "Enable federated validation of AI models"
+  - "Make health data FAIR within a federated setting"
+  - "Enhance data privacy, security, and compliance"
+  - "Optimize data utility for AI development"
+  - "Enable data sharing without moving sensitive data"
+  - "Implement standardized data formats and vocabularies"
 ---

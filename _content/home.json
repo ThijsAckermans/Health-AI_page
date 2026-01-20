@@ -1,10 +1,10 @@
 {
-  "heroTitle": "Advancing Healthcare Through Artificial Intelligence",
-  "heroSubtitle": "A Horizon Europe funded research project developing AI solutions for improved patient outcomes",
+  "heroTitle": "Revolutionize how AI is developed and validated for health",
+  "heroSubtitle": "System Breakthrough Project - Establishing a secure ecosystem for federated AI development and validation while safeguarding sensitive patient data",
   "heroImage": "/assets/hero-bg.jpg",
   "heroButtonText": "Learn More",
   "heroButtonLink": "/about",
   "introTitle": "Introduction",
-  "introContent": "<p>Our consortium combines expertise in artificial intelligence, healthcare, and clinical research to develop innovative solutions that will transform patient care.</p><p>Through cutting-edge AI technology, we aim to improve diagnosis, treatment planning, and patient outcomes across Europe.</p>",
+  "introContent": "<p>The Health-AI project addresses the limited accessibility and availability of health data within the Dutch health sector, hindering AI applications' development. Facing issues like administrative inefficiencies and workforce retention, the project aligns with the 2022 \"Integraal Zorgakkoord\" (IZA), projecting future workforce needs and health cost increases.</p><p>AI offers solutions, optimizing resources, enhancing patient involvement, and streamlining tasks, but privacy concerns surround patient data access. The project proposes a transformative solution through <strong>federated AI development and validation</strong>, establishing a secure ecosystem for collaboration among stakeholders.</p><p>The goal is to revolutionize data accessibility for cost-effective, efficient, and equitable health delivery, benefiting both individuals and the Netherlands' economic well-being.</p>",
   "introImage": "/assets/intro-image.jpg"
 }

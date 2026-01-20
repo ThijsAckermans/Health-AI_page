@@ -1,27 +1,27 @@
 {
-  "title": "Concepts & Objectives",
-  "subtitle": "Our mission and goals",
+  "title": "About Health-AI",
+  "subtitle": "Problem Analysis and Proposed Solution",
   "heroImage": "/assets/about-hero.jpg",
-  "content": "<h2>Project Overview</h2><p>The Health-AI project brings together leading research institutions and healthcare providers to develop and validate AI-powered solutions for healthcare challenges.</p><h2>Our Approach</h2><p>We combine state-of-the-art machine learning techniques with clinical expertise to create tools that are both accurate and explainable, ensuring trust and adoption in clinical settings.</p>",
+  "content": "<h2>The Challenge</h2><p>The Health-AI project addresses the limited accessibility and availability of health data within the Dutch health sector, which impedes the development and validation of AI applications in health. This sector faces complex issues such as administrative inefficiencies, workforce retention concerns, health disparities, and suboptimal electronic data exchange.</p><p>The \"Integraal Zorgakkoord\" (IZA) of 2022 has highlighted these challenges, projecting a need for <strong>25% of the workforce</strong> to be employed in the health sector by 2040 and a <strong>threefold increase in health costs by 2060</strong> if left unaddressed.</p><h2>The Opportunity</h2><p>Artificial Intelligence (AI) holds the potential to mitigate these challenges by optimizing resource utilization, encouraging patient involvement, facilitating timely interventions, and streamlining administrative tasks. However, the effectiveness of AI in health relies on efficient access to patient data, which poses privacy concerns.</p><h2>Our Solution: Federated AI</h2><p>The Health-AI project proposes a transformative solution through <strong>federated AI development and validation</strong>. This approach establishes a secure and privacy-preserving ecosystem that allows various stakeholders, including health organizations, researchers, and companies, to collaborate in harnessing AI's power while safeguarding sensitive patient data.</p><p>The project encompasses:</p><ul><li>Data provision</li><li>Federated data infrastructure</li><li>AI algorithm development</li><li>Privacy preservation</li><li>Compelling use cases</li><li>Open-source ethos</li></ul><h2>Proof of Concept Success</h2><p>In the proof-of-concept phase, we successfully demonstrated a functional federated data infrastructure. This infrastructure allowed us to train a select set of AI algorithms using actual patient data from hospitals, all while maintaining privacy and avoiding the need for data sharing.</p><h2>Beyond Healthcare</h2><p>Federated AI development and validation from sensitive data is of utmost interest to other sectors including logistics, intelligence, crime prevention, financial services, and the energy sector. The Health-AI project aims to unlock the potential of federated AI learning from sensitive data, fostering innovation, economic growth, and improved health outcomes across multiple domains.</p>",
   "objectives": [
     {
-      "title": "Develop Explainable AI Models",
-      "description": "<p>Create AI prediction models that provide transparent and interpretable results for clinical decision support.</p>",
+      "title": "Revolutionize Data Accessibility",
+      "description": "<p>Enable secure access to health data for AI development without compromising patient privacy through federated learning approaches.</p>",
       "icon": ""
     },
     {
-      "title": "Clinical Validation",
-      "description": "<p>Validate AI solutions through rigorous clinical trials across multiple European healthcare centers.</p>",
+      "title": "Privacy-Preserving AI",
+      "description": "<p>Develop and validate AI algorithms that can learn from distributed data sources while maintaining data integrity and privacy compliance.</p>",
       "icon": ""
     },
     {
-      "title": "Stakeholder Engagement",
-      "description": "<p>Involve patients, clinicians, and healthcare administrators in the co-design process.</p>",
+      "title": "Open-Source Solutions",
+      "description": "<p>Create open-source federated AI software with the potential to benefit diverse industries beyond healthcare.</p>",
       "icon": ""
     },
     {
-      "title": "Ethical AI Framework",
-      "description": "<p>Ensure fair, transparent, and ethical AI development following EU guidelines.</p>",
+      "title": "Empower Data Holders",
+      "description": "<p>Enable active participation and benefits from AI advancements without compromising data security and privacy.</p>",
       "icon": ""
     }
   ]
