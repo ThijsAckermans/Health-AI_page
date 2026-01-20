@@ -9,9 +9,10 @@ type Props = {
 };
 
 const CoverImage = ({ title, src, slug }: Props) => {
-  // Add basePath prefix for GitHub Pages
-  const imageSrc = src.startsWith('/') && !src.startsWith('/Health-AI_page') 
-    ? `/Health-AI_page${src}` 
+  // Add basePath prefix for GitHub Pages (uses env variable)
+  const basePath = process.env.BASE_PATH || '';
+  const imageSrc = src.startsWith('/') && basePath && !src.startsWith(basePath) 
+    ? `${basePath}${src}` 
     : src;
     
   const image = (

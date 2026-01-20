@@ -75,6 +75,10 @@ jobs:
 
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        env:
+          # Set BASE_PATH for GitHub Pages subdirectory deployment
+          # Remove or set to empty string when using a custom domain
+          BASE_PATH: /Health-AI_page
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

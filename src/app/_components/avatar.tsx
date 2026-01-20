@@ -4,9 +4,10 @@ type Props = {
 };
 
 const Avatar = ({ name, picture }: Props) => {
-  // Add basePath prefix for GitHub Pages
-  const imageSrc = picture.startsWith('/') && !picture.startsWith('/Health-AI_page') 
-    ? `/Health-AI_page${picture}` 
+  // Add basePath prefix for GitHub Pages (uses env variable)
+  const basePath = process.env.BASE_PATH || '';
+  const imageSrc = picture.startsWith('/') && basePath && !picture.startsWith(basePath) 
+    ? `${basePath}${picture}` 
     : picture;
     
   return (
