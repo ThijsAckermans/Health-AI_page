@@ -2,12 +2,9 @@
   "siteName": "Health-AI",
   "siteDescription": "System Breakthrough Project - Revolutionize how AI is developed and validated for health",
   "projectFullName": "Health-AI: Federated AI Development and Validation for Health",
-  "grantAgreementNumber": "",
   "fundingProgram": "AI Coalition for the Netherlands (AIC4NL)",
   "socialLinks": {
-    "facebook": "",
-    "linkedin": "https://www.linkedin.com/company/health-ai-project/posts/?feedView=all",
-    "twitter": ""
+    "linkedin": "https://www.linkedin.com/company/health-ai-project"
   },
   "footerText": "The Health-AI project aims to revolutionize data accessibility for cost-effective, efficient, and equitable health delivery. Funded by the AI Coalition for the Netherlands (AIC4NL) since 2025."
 }
