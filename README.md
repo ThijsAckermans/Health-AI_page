@@ -386,6 +386,59 @@ Health-AI_page/
 | **Next.js Docs** | [https://nextjs.org/docs](https://nextjs.org/docs) |
 | **Markdown Guide** | [https://www.markdownguide.org/](https://www.markdownguide.org/) |
 | **GitHub Pages** | [https://docs.github.com/en/pages](https://docs.github.com/en/pages) |
+| **Tailwind CSS** | [https://tailwindcss.com/docs](https://tailwindcss.com/docs) |
+
+---
+
+## 🛠️ Technical Stack
+
+This project is built on the [Next.js blog-starter](https://github.com/vercel/next.js/tree/canary/examples/blog-starter) template with significant customizations for the Health-AI project.
+
+### Core Technologies
+
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| [Next.js](https://nextjs.org/) | 14.1.0 | React framework with App Router |
+| [TypeScript](https://www.typescriptlang.org/) | 5.x | Type-safe JavaScript |
+| [Tailwind CSS](https://tailwindcss.com/) | 3.x | Utility-first CSS framework |
+| [PagesCMS](https://pagescms.org/) | - | Git-based content management |
+
+### Markdown Processing
+
+Content is processed using:
+
+- **[gray-matter](https://github.com/jonschlinkert/gray-matter)** - Parses YAML frontmatter from Markdown files
+- **[remark](https://github.com/remarkjs/remark)** - Markdown processor
+- **[remark-html](https://github.com/remarkjs/remark-html)** - Converts Markdown to HTML
+
+### How It Works
+
+1. **Content files** are stored in `_content/` as JSON (structured data) and Markdown (rich text)
+2. **Build time**: Next.js reads content files and generates static HTML pages
+3. **Frontmatter** (YAML between `---` markers) provides metadata (title, date, etc.)
+4. **Markdown body** is converted to HTML using remark
+5. **Static export** creates a fully static site deployable to any hosting
+
+### Key Files for Developers
+
+| File | Purpose |
+|------|---------|
+| `src/lib/contentApi.ts` | Functions to read and parse content files |
+| `src/lib/markdownToHtml.ts` | Markdown to HTML conversion |
+| `src/interfaces/content.ts` | TypeScript types for content |
+| `.pages.yml` | PagesCMS content schema |
+| `next.config.js` | Next.js configuration (static export, basePath) |
+| `tailwind.config.ts` | Tailwind CSS configuration |
+
+### Extending the Site
+
+To add a new page type:
+
+1. Define the content schema in `.pages.yml`
+2. Add TypeScript interface in `src/interfaces/content.ts`
+3. Add API function in `src/lib/contentApi.ts`
+4. Create page component in `src/app/(site)/`
+5. Add navigation link in `_content/navigation.json`
 
 ---
 
