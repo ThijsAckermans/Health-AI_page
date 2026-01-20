@@ -1,6 +1,6 @@
 media:
   input: public/assets
-  output: /assets
+  output: /Health-AI_page/assets
   categories: [ "image" ]
 content:
   - name: posts

@@ -9,9 +9,14 @@ type Props = {
 };
 
 const CoverImage = ({ title, src, slug }: Props) => {
+  // Add basePath prefix for GitHub Pages
+  const imageSrc = src.startsWith('/') && !src.startsWith('/Health-AI_page') 
+    ? `/Health-AI_page${src}` 
+    : src;
+    
   const image = (
     <Image
-      src={src}
+      src={imageSrc}
       alt={`Cover Image for ${title}`}
       className={cn("shadow-sm w-full", {
         "hover:shadow-lg transition-shadow duration-200": slug,
