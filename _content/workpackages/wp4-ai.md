@@ -2,10 +2,11 @@
 number: 4
 title: AI
 lead: Maastricht University
-description: The core of the project, dedicated to achieving high Technology
-  Readiness Levels (TRL) in open-source federated AI solutions.
+description: To develop, adapt, and implement AI algorithms for federated AI
+  development and validation in the context of health applications, encompassing
+  literature reviews, software development, algorithm implementation and
+  defining compelling use cases.
 objectives:
-  - Achieve high Technology Readiness Levels (TRL) in federated AI solutions
   - Develop open-source federated AI software
   - Validate AI algorithms using real-world use cases and data
   - Fine-tune models for clinical applicability
