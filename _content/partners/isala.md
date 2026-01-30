@@ -1,5 +1,5 @@
 ---
-name: Stichting Isala Klinieken (Isala)
+name: Stichting Isala Klinieken
 shortName: Isala
 logo: /assets/partners/isala-logo.png
 country: Netherlands
