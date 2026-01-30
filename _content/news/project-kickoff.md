@@ -8,4 +8,4 @@ author:
 ogImage:
   url: /assets/Kick-off.jpg
 ---
-We are excited to announce the official launch of the Health-AI project, a groundbreaking research initiative funded by the AI Coalition for the Netherlands (AIC4NL).
+We are excited to announce the official launch of the Health-AI project, a groundbreaking research initiative funded by the AI Coalition for the Netherlands (AIC4NL). Also have a look at the LinkedIn post from AIC4NL: [link](https://www.linkedin.com/posts/aic4nl_healthai-het-grootste-ained-project-tot-activity-7383414958887284736-jhAU?utm_source=share&utm_medium=member_desktop&rcm=ACoAABjz620BCPJWizStRqhMH3topB13YlCtAP0).
