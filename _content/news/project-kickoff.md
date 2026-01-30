@@ -8,17 +8,4 @@ author:
 ogImage:
   url: /assets/Kick-off.jpg
 ---
-We are excited to announce the official launch of the Health-AI project, a groundbreaking research initiative funded by the European Commission's Horizon Europe Programme.
-
-## About the Project
-
-Health-AI brings together leading research institutions and healthcare providers from across Europe to develop AI-powered solutions for healthcare challenges. Over the next three years, our consortium will work on creating explainable AI models for clinical decision support.
-
-## Our Goals
-
-*   Develop transparent and interpretable AI prediction models
-*   Conduct clinical validation across multiple European centers
-*   Engage stakeholders in the co-design process
-*   Ensure ethical AI development following EU guidelines
-
-Stay tuned for more updates on our progress!
+We are excited to announce the official launch of the Health-AI project, a groundbreaking research initiative funded by the AI Coalition for the Netherlands (AIC4NL). Also have a look at the LinkedIn post from AIC4NL: [link](https://www.linkedin.com/posts/aic4nl_healthai-het-grootste-ained-project-tot-activity-7383414958887284736-jhAU?utm_source=share&utm_medium=member_desktop&rcm=ACoAABjz620BCPJWizStRqhMH3topB13YlCtAP0).
