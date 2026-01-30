@@ -7,7 +7,7 @@ export default function ConsortiumPage() {
   const settings = getSettings();
   const navigation = getNavigation();
   const partners = getAllPartners();
-  const basePath = process.env.BASE_PATH || "";
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || process.env.BASE_PATH || "";
 
   const getImageSrc = (src: string) => {
     if (!src) return "";
@@ -22,11 +22,24 @@ export default function ConsortiumPage() {
 
       <main>
         {/* Hero */}
-        <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Consortium</h1>
-            <p className="text-xl text-blue-100">
-              Our consortium brings together leading institutions across Europe
+        <section className="relative overflow-hidden text-white py-16 md:py-20">
+          <div className="absolute inset-0">
+            <Image
+              src={getImageSrc("/assets/about-hero.jpg")}
+              alt="Consortium"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-blue-900/80 to-blue-900/70"></div>
+          </div>
+          <div className="relative container-wide">
+            <span className="badge-primary bg-white/10 text-white border border-white/20 mb-4">
+              Our Partners
+            </span>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Consortium</h1>
+            <p className="text-xl text-blue-100 max-w-2xl">
+              16 leading institutions across the Netherlands working together
             </p>
           </div>
         </section>

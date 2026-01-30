@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type MenuItem = {
   label: string;
@@ -16,36 +16,58 @@ type Props = {
 
 export function Navigation({ siteName, menuItems }: Props) {
   const [isOpen, setIsOpen] = useState(false);
-  const basePath = process.env.BASE_PATH || "";
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+    <nav className={`sticky top-0 z-50 transition-all duration-300 ${
+      scrolled 
+        ? "bg-white/95 backdrop-blur-lg shadow-lg shadow-gray-200/50" 
+        : "bg-white shadow-sm"
+    }`}>
+      <div className="container-wide">
+        <div className="flex justify-between h-16 md:h-20">
           <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold text-blue-600">
-              {siteName}
+            <Link href="/" className="group">
+              <span className="text-xl md:text-2xl font-bold text-gray-900 tracking-tight group-hover:text-blue-600 transition-colors">
+                {siteName}
+              </span>
             </Link>
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden md:flex items-center space-x-4">
-            {menuItems.map((item) => (
+          <div className="hidden lg:flex items-center gap-1">
+            {menuItems.filter(item => item.href !== '/contact').map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+                className="relative px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200 rounded-lg hover:bg-blue-50/50 group"
               >
                 {item.label}
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-4/5 rounded-full"></span>
               </Link>
             ))}
+            <Link
+              href="/contact"
+              className="ml-4 btn-primary text-sm px-5 py-2.5"
+            >
+              Contact Us
+            </Link>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600 focus:outline-none"
+              className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors focus-ring"
+              aria-label="Toggle menu"
             >
               <svg
                 className="h-6 w-6"
@@ -74,20 +96,31 @@ export function Navigation({ siteName, menuItems }: Props) {
         </div>
 
         {/* Mobile menu */}
-        {isOpen && (
-          <div className="md:hidden pb-4">
+        <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? "max-h-96 pb-4" : "max-h-0"
+        }`}>
+          <div className="pt-2 space-y-1">
             {menuItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block text-gray-700 hover:text-blue-600 px-3 py-2 text-base font-medium"
+                className="block px-4 py-3 text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
+            <div className="pt-2 px-4">
+              <Link
+                href="/contact"
+                className="btn-primary w-full text-center"
+                onClick={() => setIsOpen(false)}
+              >
+                Contact Us
+              </Link>
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

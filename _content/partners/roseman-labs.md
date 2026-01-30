@@ -1,10 +1,12 @@
 ---
-name: "Roseman Labs B.V."
-shortName: "Roseman Labs"
-logo: "/assets/partners/roseman-labs-logo.png"
-country: "Netherlands"
-website: "https://www.rosemanlabs.com"
-description: "Privacy-enhancing technology company specializing in secure multi-party computation for sensitive data analysis."
-role: "AI Developer (WP4)"
+name: Roseman Labs B.V.
+shortName: RML
+logo: /assets/partners/roseman-labs-logo.png
+country: Netherlands
+website: https://www.rosemanlabs.com
+description: RML is a small company specializing in privacy technology based on
+  secure multi-party computation.
+role: They primarily serve as Infrastructure providers and secondarily as AI
+  developers
 order: 14
 ---

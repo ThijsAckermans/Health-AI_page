@@ -19,9 +19,10 @@ const nextConfig = {
   // Ensure trailing slashes for GitHub Pages compatibility
   trailingSlash: true,
   
-  // Make basePath available to components
+  // Make basePath available to both server and client components
   env: {
     BASE_PATH: basePath,
+    NEXT_PUBLIC_BASE_PATH: basePath,
   },
 };
 
