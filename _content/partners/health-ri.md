@@ -1,5 +1,5 @@
 ---
-name: Stichting Health-RI (Health-RI)
+name: "Stichting Health-RI "
 shortName: Health-RI
 logo: /assets/partners/health-ri-logo.png
 country: Netherlands
