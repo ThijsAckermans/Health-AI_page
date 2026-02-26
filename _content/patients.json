@@ -1,0 +1,23 @@
+{
+  "title": "Patient Information",
+  "intro": "<p>The Health-AI project is committed to improving healthcare through responsible and transparent use of artificial intelligence. Here you can find information about how AI is being developed and validated in a way that benefits patients.</p>",
+  "content": "<h2>What is Health-AI?</h2><p>Health-AI is a System Breakthrough Project that aims to revolutionize how AI is developed and validated for health through federated learning. This means that patient data stays at the hospital and is never shared — only AI models travel between institutions.</p><h2>How Does This Affect Me?</h2><p>As a patient, your data privacy and safety are our top priorities. The federated learning approach used in Health-AI ensures that your personal health data remains securely stored at your healthcare provider and is never transferred to external parties.</p><h2>Data Privacy</h2><p>All research within the Health-AI project complies with the General Data Protection Regulation (GDPR) and is reviewed by medical ethics committees. Your data is only used in anonymized or pseudonymized form for the development and validation of AI models.</p>",
+  "faqs": [
+    {
+      "question": "Is my personal data shared with other organizations?",
+      "answer": "No. Health-AI uses federated learning, which means your data stays at your healthcare provider. Only the AI models — not patient data — are shared between institutions."
+    },
+    {
+      "question": "How does federated learning protect my privacy?",
+      "answer": "Federated learning allows AI models to be trained across multiple hospitals without moving any patient data. The AI model visits the data, not the other way around."
+    },
+    {
+      "question": "Do I need to give consent for my data to be used?",
+      "answer": "All research within Health-AI follows strict ethical guidelines and GDPR regulations. Your healthcare provider will inform you about any specific studies and obtain consent where required."
+    },
+    {
+      "question": "Who is funding this project?",
+      "answer": "Health-AI is a System Breakthrough Project funded through the AI Coalition for the Netherlands (AIC4NL)."
+    }
+  ]
+}

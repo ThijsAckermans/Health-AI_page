@@ -19,8 +19,12 @@ import {
 const contentDirectory = join(process.cwd(), "_content");
 
 // Helper to read JSON files
-function readJsonFile<T>(filePath: string): T {
+function readJsonFile<T>(filePath: string, fallback?: T): T {
   const fullPath = join(contentDirectory, filePath);
+  if (!fs.existsSync(fullPath)) {
+    console.warn(`[contentApi] Missing file: ${fullPath} — using fallback`);
+    return (fallback ?? {}) as T;
+  }
   const fileContents = fs.readFileSync(fullPath, "utf8");
   return JSON.parse(fileContents) as T;
 }
@@ -28,6 +32,10 @@ function readJsonFile<T>(filePath: string): T {
 // Helper to read markdown files with frontmatter
 function readMarkdownFile(filePath: string): { data: Record<string, unknown>; content: string } {
   const fullPath = join(contentDirectory, filePath);
+  if (!fs.existsSync(fullPath)) {
+    console.warn(`[contentApi] Missing file: ${fullPath} — using fallback`);
+    return { data: {}, content: "" };
+  }
   const fileContents = fs.readFileSync(fullPath, "utf8");
   return matter(fileContents);
 }
@@ -149,15 +157,20 @@ export function getContactContent(): ContactContent {
 
 // Patients
 export function getPatientsContent(): PatientsContent {
-  return readJsonFile<PatientsContent>("patients.json");
+  return readJsonFile<PatientsContent>("patients.json", {
+    title: "Patient Information",
+    intro: "",
+    content: "<p>Content coming soon.</p>",
+    faqs: [],
+  });
 }
 
 // Legal Pages
 export function getLegalPage(page: "privacy" | "disclaimer" | "cookies"): LegalPage {
   const { data, content } = readMarkdownFile(`${page}.md`);
   return {
-    title: data.title as string,
-    lastUpdated: data.lastUpdated as string,
-    content,
+    title: (data.title as string) || page.charAt(0).toUpperCase() + page.slice(1),
+    lastUpdated: (data.lastUpdated as string) || new Date().toISOString().split("T")[0],
+    content: content || "",
   };
 }
