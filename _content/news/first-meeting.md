@@ -1,22 +1,19 @@
 ---
 title: "First (online) Consortium Meeting "
-coverImage: /assets/news/consortium-meeting.jpg
+coverImage: /assets/Consortium-meeting.jpg
 date: 2025-01-31T14:00:00.000Z
 author:
   name: Health-AI Team
 ogImage:
-  url: /assets/news/consortium-meeting.jpg
+  url: /assets/Consortium-meeting-1.jpg
 ---
 The Health-AI consortium held its first pre-kick off online meeting, bringing together all project partners to discuss the outline of the project.
 
 ## Meeting Highlights
 
-*   Introduction of all partners
-    
-*   Recap of the project
-    
-*   Discussion of the Governance, Collaboration and Consortium agreement
-    
+- Introduction of all partners
+- Recap of the project
+- Discussion of the Governance, Collaboration and Consortium agreement
 
 ## Next Steps
 
