@@ -121,37 +121,7 @@ export function SiteFooter({ siteName, footerText, socialLinks, grantAgreementNu
             </ul>
           </div>
 
-          {/* Legal */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-6">
-              Legal
-            </h3>
-            <ul className="space-y-4">
-              <li>
-                <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Privacy Statement
-                </Link>
-              </li>
-              <li>
-                <Link href="/disclaimer" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Disclaimer
-                </Link>
-              </li>
-              <li>
-                <Link href="/cookies" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Cookie Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/patients" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  For Patients
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
+        
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
         <div className="container-wide py-6">
