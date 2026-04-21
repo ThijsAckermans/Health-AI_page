@@ -1,5 +1,5 @@
 ---
-title: "Second Consortium Meeting "
+title: "Consortium Meeting "
 coverImage: /assets/Second-Consortium-Meeting.jpg
 date: 2026-04-10T15:02:00.000Z
 ogImage:
