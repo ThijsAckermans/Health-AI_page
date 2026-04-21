@@ -1,7 +1,7 @@
 ---
 title: "Second Consortium Meeting "
 coverImage: /assets/Second-Consortium-Meeting.jpg
-date: 2026-04-09T15:02:00.000Z
+date: 2026-04-10T15:02:00.000Z
 ogImage:
   url: /assets/Second-Consortium-Meeting-1.jpg
 ---
