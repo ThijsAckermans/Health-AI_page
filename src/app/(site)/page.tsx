@@ -118,8 +118,8 @@ export default function Home() {
                 <div className="text-gray-600 font-medium">Work Packages</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">€8.2M</div>
-                <div className="text-gray-600 font-medium">Funding</div>
+                <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">4 years </div>
+                <div className="text-gray-600 font-medium">Project Duration</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">2025</div>
