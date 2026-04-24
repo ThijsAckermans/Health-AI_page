@@ -1,3 +1,4 @@
+
 import cn from "classnames";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,15 +10,9 @@ type Props = {
 };
 
 const CoverImage = ({ title, src, slug }: Props) => {
-  // Add basePath prefix for GitHub Pages (uses env variable)
-  const basePath = process.env.BASE_PATH || '';
-  const imageSrc = src.startsWith('/') && basePath && !src.startsWith(basePath) 
-    ? `${basePath}${src}` 
-    : src;
-    
   const image = (
     <Image
-      src={imageSrc}
+      src={src}
       alt={`Cover Image for ${title}`}
       className={cn("shadow-sm w-full", {
         "hover:shadow-lg transition-shadow duration-200": slug,
@@ -26,6 +21,7 @@ const CoverImage = ({ title, src, slug }: Props) => {
       height={630}
     />
   );
+
   return (
     <div className="sm:mx-0">
       {slug ? (
@@ -40,3 +36,5 @@ const CoverImage = ({ title, src, slug }: Props) => {
 };
 
 export default CoverImage;
+``
+
