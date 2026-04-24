@@ -1,29 +1,18 @@
+
 /** @type {import('next').NextConfig} */
-
-// Use BASE_PATH env variable for flexibility:
-// - GitHub Pages (subdirectory): BASE_PATH='/Health-AI_page'
-// - Custom domain (root): BASE_PATH='' or not set
-const basePath = process.env.BASE_PATH || '';
-
 const nextConfig = {
+  // Static export required for GitHub Pages
   output: 'export',
-  
-  basePath: basePath,
-  assetPrefix: basePath ? `${basePath}/` : '',
-  
-  // Disable image optimization for static export
+
+  // Disable Next.js image optimization (required for static hosting)
   images: {
     unoptimized: true,
   },
-  
-  // Ensure trailing slashes for GitHub Pages compatibility
+
+  // Trailing slashes work well with GitHub Pages
   trailingSlash: true,
-  
-  // Make basePath available to both server and client components
-  env: {
-    BASE_PATH: basePath,
-    NEXT_PUBLIC_BASE_PATH: basePath,
-  },
 };
 
 module.exports = nextConfig;
+``
+
