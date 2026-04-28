@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import { getSettings, getNavigation, getAllWorkPackages } from "@/lib/contentApi";
 import Navigation from "@/app/_components/navigation";
 import SiteFooter from "@/app/_components/site-footer";
@@ -7,14 +7,6 @@ export default function WorkPackagesPage() {
   const settings = getSettings();
   const navigation = getNavigation();
   const workPackages = getAllWorkPackages();
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || process.env.BASE_PATH || "";
-
-  const getImageSrc = (src: string) => {
-    if (!src) return "";
-    return src.startsWith("/") && basePath && !src.startsWith(basePath)
-      ? `${basePath}${src}`
-      : src;
-  };
 
   return (
     <>
@@ -24,20 +16,21 @@ export default function WorkPackagesPage() {
         {/* Hero */}
         <section className="relative overflow-hidden text-white py-16 md:py-20">
           <div className="absolute inset-0">
-            <Image
-              src={getImageSrc("/assets/about-hero.jpg")}
+            <img
+              src="/assets/about-hero.jpg"
               alt="Work Packages"
-              fill
-              className="object-cover"
-              priority
+              className="object-cover w-full h-full"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-blue-900/80 to-blue-900/70"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-blue-900/80 to-blue-900/70" />
           </div>
+
           <div className="relative container-wide">
             <span className="badge-primary bg-white/10 text-white border border-white/20 mb-4">
               Project Structure
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Work Packages</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+              Work Packages
+            </h1>
             <p className="text-xl text-blue-100 max-w-2xl">
               The project structure and organization
             </p>
@@ -56,8 +49,11 @@ export default function WorkPackagesPage() {
                   >
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0 w-16 h-16 bg-blue-600 text-white rounded-lg flex items-center justify-center">
-                        <span className="text-2xl font-bold">WP{wp.number}</span>
+                        <span className="text-2xl font-bold">
+                          WP{wp.number}
+                        </span>
                       </div>
+
                       <div className="flex-1">
                         <h2 className="text-xl font-semibold text-gray-900 mb-2">
                           {wp.title}
@@ -65,12 +61,16 @@ export default function WorkPackagesPage() {
                         <p className="text-sm text-blue-600 mb-3">
                           Lead: {wp.lead}
                         </p>
+
                         {wp.description && (
                           <div
                             className="text-gray-600 mb-4"
-                            dangerouslySetInnerHTML={{ __html: wp.description }}
+                            dangerouslySetInnerHTML={{
+                              __html: wp.description,
+                            }}
                           />
                         )}
+
                         {wp.objectives && wp.objectives.length > 0 && (
                           <div className="mt-4">
                             <p className="font-medium text-gray-700 mb-2">
@@ -106,3 +106,4 @@ export default function WorkPackagesPage() {
     </>
   );
 }
+
