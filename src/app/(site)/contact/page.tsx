@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import { getSettings, getNavigation, getContactContent } from "@/lib/contentApi";
 import Navigation from "@/app/_components/navigation";
 import SiteFooter from "@/app/_components/site-footer";
@@ -7,14 +7,6 @@ export default function ContactPage() {
   const settings = getSettings();
   const navigation = getNavigation();
   const contact = getContactContent();
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || process.env.BASE_PATH || "";
-
-  const getImageSrc = (src: string) => {
-    if (!src) return "";
-    return src.startsWith("/") && basePath && !src.startsWith(basePath)
-      ? `${basePath}${src}`
-      : src;
-  };
 
   return (
     <>
@@ -24,20 +16,21 @@ export default function ContactPage() {
         {/* Hero */}
         <section className="relative overflow-hidden text-white py-16 md:py-20">
           <div className="absolute inset-0">
-            <Image
-              src={getImageSrc("/assets/about-hero.jpg")}
+            <img
+              src="/assets/about-hero.jpg"
               alt="Contact"
-              fill
-              className="object-cover"
-              priority
+              className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-blue-900/80 to-blue-900/70"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-blue-900/80 to-blue-900/70" />
           </div>
+
           <div className="relative container-wide">
             <span className="badge-primary bg-white/10 text-white border border-white/20 mb-4">
               Get in Touch
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">{contact.title}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+              {contact.title}
+            </h1>
           </div>
         </section>
 
@@ -61,9 +54,13 @@ export default function ContactPage() {
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">
                         Project Coordinator
                       </h3>
-                      <p className="text-gray-600">{contact.coordinatorName}</p>
+                      <p className="text-gray-600">
+                        {contact.coordinatorName}
+                      </p>
                       {contact.coordinatorOrg && (
-                        <p className="text-gray-500">{contact.coordinatorOrg}</p>
+                        <p className="text-gray-500">
+                          {contact.coordinatorOrg}
+                        </p>
                       )}
                     </div>
                   )}
@@ -91,14 +88,16 @@ export default function ContactPage() {
                       </h3>
                       <div
                         className="text-gray-600"
-                        dangerouslySetInnerHTML={{ __html: contact.address }}
+                        dangerouslySetInnerHTML={{
+                          __html: contact.address,
+                        }}
                       />
                     </div>
                   )}
                 </div>
               </div>
 
-              {/* Contact Form Placeholder or Map */}
+              {/* Contact CTA */}
               <div className="bg-gray-50 rounded-lg p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
                   Get in Touch
@@ -130,3 +129,4 @@ export default function ContactPage() {
     </>
   );
 }
+``
