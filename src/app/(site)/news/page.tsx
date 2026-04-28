@@ -1,5 +1,5 @@
+
 import Link from "next/link";
-import Image from "next/image";
 import { getSettings, getNavigation, getAllNewsPosts } from "@/lib/contentApi";
 import Navigation from "@/app/_components/navigation";
 import SiteFooter from "@/app/_components/site-footer";
@@ -8,14 +8,6 @@ export default function NewsPage() {
   const settings = getSettings();
   const navigation = getNavigation();
   const news = getAllNewsPosts();
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || process.env.BASE_PATH || "";
-
-  const getImageSrc = (src: string) => {
-    if (!src) return "";
-    return src.startsWith("/") && basePath && !src.startsWith(basePath)
-      ? `${basePath}${src}`
-      : src;
-  };
 
   return (
     <>
@@ -25,21 +17,24 @@ export default function NewsPage() {
         {/* Hero */}
         <section className="relative overflow-hidden text-white py-16 md:py-20">
           <div className="absolute inset-0">
-            <Image
-              src={getImageSrc("/assets/about-hero.jpg")}
+            <img
+              src="/assets/about-hero.jpg"
               alt="News"
-              fill
-              className="object-cover"
-              priority
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-blue-900/80 to-blue-900/70"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-blue-900/80 to-blue-900/70" />
           </div>
+
           <div className="relative container-wide">
             <span className="badge-primary bg-white/10 text-white border border-white/20 mb-4">
               Updates
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">News</h1>
-            <p className="text-xl text-blue-100 max-w-2xl">Latest updates from the Health-AI project</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+              News
+            </h1>
+            <p className="text-xl text-blue-100 max-w-2xl">
+              Latest updates from the Health-AI project
+            </p>
           </div>
         </section>
 
@@ -55,14 +50,14 @@ export default function NewsPage() {
                   >
                     {post.coverImage && (
                       <div className="relative h-48">
-                        <Image
-                          src={getImageSrc(post.coverImage)}
+                        <img
+                          src={post.coverImage}
                           alt={post.title}
-                          fill
-                          className="object-cover"
+                          className="w-full h-full object-cover"
                         />
                       </div>
                     )}
+
                     <div className="p-6">
                       <p className="text-sm text-gray-500 mb-2">
                         {new Date(post.date).toLocaleDateString("en-US", {
@@ -86,7 +81,9 @@ export default function NewsPage() {
                 ))}
               </div>
             ) : (
-              <p className="text-center text-gray-500">No news posts yet.</p>
+              <p className="text-center text-gray-500">
+                No news posts yet.
+              </p>
             )}
           </div>
         </section>
