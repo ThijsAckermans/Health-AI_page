@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import { getSettings, getNavigation, getAllPartners } from "@/lib/contentApi";
 import Navigation from "@/app/_components/navigation";
 import SiteFooter from "@/app/_components/site-footer";
@@ -7,14 +7,6 @@ export default function ConsortiumPage() {
   const settings = getSettings();
   const navigation = getNavigation();
   const partners = getAllPartners();
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || process.env.BASE_PATH || "";
-
-  const getImageSrc = (src: string) => {
-    if (!src) return "";
-    return src.startsWith("/") && basePath && !src.startsWith(basePath)
-      ? `${basePath}${src}`
-      : src;
-  };
 
   return (
     <>
@@ -24,20 +16,21 @@ export default function ConsortiumPage() {
         {/* Hero */}
         <section className="relative overflow-hidden text-white py-16 md:py-20">
           <div className="absolute inset-0">
-            <Image
-              src={getImageSrc("/assets/about-hero.jpg")}
+            <img
+              src="/assets/about-hero.jpg"
               alt="Consortium"
-              fill
-              className="object-cover"
-              priority
+              className="absolute inset-0 h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-blue-900/80 to-blue-900/70"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-blue-900/80 to-blue-900/70" />
           </div>
+
           <div className="relative container-wide">
             <span className="badge-primary bg-white/10 text-white border border-white/20 mb-4">
               Our Partners
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Consortium</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+              Consortium
+            </h1>
             <p className="text-xl text-blue-100 max-w-2xl">
               16 leading institutions across the Netherlands working together
             </p>
@@ -56,12 +49,10 @@ export default function ConsortiumPage() {
                   >
                     <div className="flex-shrink-0 w-full md:w-48">
                       {partner.logo ? (
-                        <Image
-                          src={getImageSrc(partner.logo)}
+                        <img
+                          src={partner.logo}
                           alt={partner.name}
-                          width={180}
-                          height={90}
-                          className="object-contain"
+                          className="max-h-24 object-contain"
                         />
                       ) : (
                         <div className="bg-gray-100 h-24 w-full flex items-center justify-center rounded">
@@ -71,19 +62,25 @@ export default function ConsortiumPage() {
                         </div>
                       )}
                     </div>
+
                     <div className="flex-1">
                       <h2 className="text-2xl font-semibold text-gray-900 mb-2">
                         {partner.name}
                       </h2>
+
                       <p className="text-sm text-gray-500 mb-4">
                         {partner.country}
                       </p>
+
                       {partner.description && (
                         <div
                           className="text-gray-600 mb-4"
-                          dangerouslySetInnerHTML={{ __html: partner.description }}
+                          dangerouslySetInnerHTML={{
+                            __html: partner.description,
+                          }}
                         />
                       )}
+
                       {partner.role && (
                         <div className="bg-blue-50 p-4 rounded-lg">
                           <p className="text-sm font-medium text-blue-800 mb-1">
@@ -91,10 +88,13 @@ export default function ConsortiumPage() {
                           </p>
                           <div
                             className="text-blue-700"
-                            dangerouslySetInnerHTML={{ __html: partner.role }}
+                            dangerouslySetInnerHTML={{
+                              __html: partner.role,
+                            }}
                           />
                         </div>
                       )}
+
                       {partner.website && (
                         <a
                           href={partner.website}
@@ -110,7 +110,9 @@ export default function ConsortiumPage() {
                 ))}
               </div>
             ) : (
-              <p className="text-center text-gray-500">No partners listed yet.</p>
+              <p className="text-center text-gray-500">
+                No partners listed yet.
+              </p>
             )}
           </div>
         </section>
@@ -125,3 +127,4 @@ export default function ConsortiumPage() {
     </>
   );
 }
+``
